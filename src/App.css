@@ -1,0 +1,98 @@
+
+.p-menu {
+  background-color: #181824 !important;
+}
+.p-menuitem-icon{
+    color:#FFFFFF !important;
+}
+
+.p-menuitem-text{
+  color:#FFFFFF !important;
+}
+
+.p-menu .p-menuitem .p-menuitem-link:hover {
+  background-color: #6cb3e3;
+
+}
+
+.p-menuitem-logout .p-menuitem-text {
+  color:#FF5757 !important;
+}
+
+.p-menuitem-logout .p-menuitem-icon {
+  color:#FF5757 !important;
+}
+.title {
+  text-align: center;
+  color: white;
+}
+.subtitle {
+  text-align: center;
+  margin-top: -20px;
+  font-size: 15px;
+  color: white;
+}
+.logOut {
+  background-color: #242438;
+  text-align: center;
+  color: white;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  font-size: 12px;
+  font: bold;
+  cursor: pointer;
+  border: none;
+  outline-style: none;
+  
+}
+.App  {
+  text-align: center;
+}
+
+.header {
+  overflow: hidden;
+}
+
+.brand {
+  float: left;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+  font: bold;
+}
+
+.header-right {
+  float: right;
+  text-align: right;
+  margin: 30px;
+}
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+.site-slector {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  border: none;
+  outline-style: none;
+  background-color: #242438;
+  height: 30px;
+  color: #FFFFFF;
+}
+
+
+

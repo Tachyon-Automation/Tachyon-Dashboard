@@ -84,10 +84,20 @@ class About extends Component{
                 <form>
                    <input class="shopify" type="text" id="shopifyquestions" name="shopify" placeholder="Shopify Questions" autocomplete="off"></input>
                </form>
-               <button class="save-button "type="button" >Save Changes</button>
-               </div>
+               <button class="save-button" id="save" type="button" >Save Changes</button>
             </div>
+        </div>
         );
+    
     }
+    
 }
+
+//var submit = document.getElementById("save")
+//submit.onclick = function(){
+//var shopifyfiltered = document.getElementById("shopifyfiltered")
+//console.log(shopifyfiltered)
+//}
+
+  
 export default About;

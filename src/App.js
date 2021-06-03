@@ -43,21 +43,23 @@ class App extends Component{
                 </div>
                 </div>
                 <div class="dropdown">
-                <select class="site-slector" onchange="location = this.options[this.selectedIndex].value;">
-                <option value="shopify" default>Shopify Webhooks </option>
-                <option value="supreme">Supreme Webhooks</option>
-                <option value="adidas">Adidas Webhooks</option>
-                <option value="nike">Nike Webhooks</option>
-                <option value="footsites">Footsites Webhooks</option>
-                <option value="mehs">Mesh Webhooks</option>
-                <option value="aio">AIO Webhooks</option>
-                <option value="retail">Retail Webhooks</option>
-                <option value="economic">Economic Webhooks</option>
-                <option value="social">Social Webhooks</option>
-                <option value="logs">Bot Log Webhooks</option>
-                <option value="releaseinfo">Release Info Webhooks</option>
-
-                </select>
+                <button class="site-slector">Shopify Webhooks
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                <a href="#/shopify">Shopify Webhooks</a>
+                <a href="#/supreme">Supreme Webhooks</a>
+                <a href="#/adidas">Adidas Webhooks</a>
+                <a href="#/nike">Nike Webhook</a>
+                <a href="#/footsites">Footsites Webhooks</a>
+                <a href="#/mesh">Mesh Webhooks</a>
+                <a href="#/aio">AIO Webhooks</a>
+                <a href="#/retail">Retail Webhooks</a>
+                <a href="#/economic">Economic Webhooks</a>
+                <a href="#/social">Social Webhooks</a>
+                <a href="#/logs">Bot Log Webhooks</a>
+                <a href="#/releaseinfo">Release Webhooks</a>
+               </div>
                 </div>
 
                     <div style={{marginTop:"150px"}}>
@@ -73,8 +75,8 @@ class App extends Component{
                             <Route path="/retail" component={retail} />
                             <Route path="/economic" component={economic} />
                             <Route path="/social" component={social} />
-                            <Route path="/releaseinfo" component={releaseinfo} />
                             <Route path="/logs" component={logs} />
+                            <Route path="/releaseinfo" component={releaseinfo} />
                         </Switch>
                     </div>
                 </div>

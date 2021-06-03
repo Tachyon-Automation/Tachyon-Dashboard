@@ -95,4 +95,47 @@
 }
 
 
+/* The dropdown container */
+.dropdown {
+  float: center;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  float: center;
+  font-size: 12px;
+ 
+  
+  color: white;
+}
+
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  float: center;
+  display: none;
+  background-color: #242438;
+  min-width: 20px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 4px;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  width: 122px;
+  float: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 

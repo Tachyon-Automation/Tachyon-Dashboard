@@ -1,6 +1,6 @@
 
 .p-menu {
-  background-color: #181824 !important;
+  background-color: #121A2D !important;
 }
 .p-menuitem-icon{
     color:#FFFFFF !important;
@@ -33,12 +33,12 @@
   color: white;
 }
 .logOut {
-  background-color: #242438;
+  background-color: #FF5757;
   text-align: center;
   color: white;
   height: 40px;
   width: 100px;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 12px;
   font: bold;
   cursor: pointer;

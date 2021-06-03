@@ -23,12 +23,13 @@ code {
 }
 
 .hook-label {
-  color: #d3d9dd;
+  color: white;
   font-size: 13px;
   margin-right: 680px;
   text-align:left;
-  padding-left: 100px;
+  margin-left: 100px;
 }
+
 
 .hook-container {
   color: white;
@@ -37,23 +38,23 @@ code {
 
 
 .grid-container {
+  background: #1a1725;
   display: grid;
   text-align: center;
-  background: #1b1b27;
   border-radius: 10px;
   margin: auto;
   width: 1000px;
   margin-top: -85px;
 }
-#shopify {
-  color: white;
-  border-radius: 5px;
+.shopify {
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
   background: #29253B;
   padding: 2px;
   width: 800px;
   height: 25px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   text-align: center;
   border: none;
   cursor: pointer;

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+const e = React.createElement;
 class About extends Component{
 
     render()
@@ -85,19 +85,21 @@ class About extends Component{
                    <input class="shopify" type="text" id="shopifyquestions" name="shopify" placeholder="Shopify Questions" autocomplete="off"></input>
                </form>
                <button class="save-button" id="save" type="button" >Save Changes</button>
+               
             </div>
         </div>
         );
     
     }
     
+    
 }
 
-//var submit = document.getElementById("save")
-//submit.onclick = function(){
-//var shopifyfiltered = document.getElementById("shopifyfiltered")
-//console.log(shopifyfiltered)
-//}
+// var submit = document.getElementById("save")
+// submit.onclick = function(){
+// var shopifyfiltered = document.getElementById("shopifyfiltered")
+// console.log(shopifyfiltered)
+// }
 
   
 export default About;

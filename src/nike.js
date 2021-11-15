@@ -8,9 +8,9 @@ class About extends Component{
             <div>
                 <div class="grid-container">
                 <h2 class="hook-container">Nike Webhooks</h2>
-                <label class="hook-label" for="webhook" >Nike US</label>
+                <label class="hook-label" for="webhook" >SNKRS US</label>
                 <form>
-                   <input class="shopify" type="text" id="NIKEUS" name="shopify" placeholder="Nike US" autocomplete="off"></input>
+                   <input class="shopify" type="text" id="SNKRSUS" name="shopify" placeholder="SNKRS US" autocomplete="off"></input>
                </form>
                <label class="hook-label" for="shopify" >Nike CN</label>
                 <form>

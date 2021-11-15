@@ -1,23 +1,26 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import 'primereact/resources/themes/rhea/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
-import shopify from './shopify';
-import supreme from './supreme';
-import adidas from './adidas';
-import nike from './nike';
-import footsites from './footsites';
-import mesh from './mesh';
-import aio from './aio';
-import retail from './retail';
-import economic from './economic';
-import social from './social';
-import releaseinfo from './releaseinfo';
-import logs from './logs';
-class App extends Component{
+import shopify from './sites/shopify';
+import supreme from './sites/supreme';
+import adidas from './sites/adidas';
+import nike from './sites/nike';
+import footsites from './sites/footsites';
+import mesh from './sites/mesh';
+import aio from './sites/aio';
+import retail from './sites/retail';
+import economic from './sites/economic';
+import social from './sites/social';
+import releaseinfo from './sites/releaseinfo';
+import logs from './sites/logs';
+
+import DropdownSites from './dropdown'
+
+class App extends Component {
 
     constructor() {
         super();
@@ -25,42 +28,29 @@ class App extends Component{
         };
     }
 
-    render()
-    {
+    changeSite = (e) => {
+        this.props.history.push(`/${e.target.value}`);
+    }
+
+    render() {
         return (
             <Router>
                 <div class="App" >
-                <div class="header">
-                <h1 class="brand">Tachyon Monitors</h1>
-                <a class="header-right" href="https://www.tachyonrobotics.com/">
-                <button class="logOut" type="button">Log out</button>
-                </a>
-                </div>
-                <div>
-                <h1 class="title">Client Dashboard </h1>
-                <p class="subtitle">Configure your webhooks</p>
-                <div class="header">
-                </div>
-                </div>
-                <div class="dropdown">
-                <select class="site-slector" onchange="location = this.options[this.selectedIndex].value;">
-                <option value="shopify" default>Shopify Webhooks </option>
-                <option value="supreme">Supreme Webhooks</option>
-                <option value="adidas">Adidas Webhooks</option>
-                <option value="nike">Nike Webhooks</option>
-                <option value="footsites">Footsites Webhooks</option>
-                <option value="mehs">Mesh Webhooks</option>
-                <option value="aio">AIO Webhooks</option>
-                <option value="retail">Retail Webhooks</option>
-                <option value="economic">Economic Webhooks</option>
-                <option value="social">Social Webhooks</option>
-                <option value="logs">Bot Log Webhooks</option>
-                <option value="releaseinfo">Release Info Webhooks</option>
+                    <div class="header">
+                        <h1 class="brand">Tachyon Monitors</h1>
+                        <a class="header-right" href="https://www.tachyonrobotics.com/">
+                            <button class="logOut" type="button">Log out</button>
+                        </a>
+                    </div>
+                    <div>
+                        <h1 class="title">Client Dashboard </h1>
+                        <p class="subtitle">Configure your webhooks</p>
+                        <div class="header">
+                        </div>
+                    </div>
+                    <DropdownSites/>
 
-                </select>
-                </div>
-
-                    <div style={{marginTop:"150px"}}>
+                    <div style={{ marginTop: "150px" }}>
                         <Switch>
                             <Route exact path="/" component={shopify} />
                             <Route path="/shopify" component={shopify} />

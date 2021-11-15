@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-const e = React.createElement;
 class About extends Component{
 
     render()

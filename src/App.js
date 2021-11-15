@@ -47,18 +47,18 @@ class App extends Component{
                 <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                <a href="#/shopify">Shopify Webhooks</a>
-                <a href="#/supreme">Supreme Webhooks</a>
-                <a href="#/adidas">Adidas Webhooks</a>
-                <a href="#/nike">Nike Webhook</a>
-                <a href="#/footsites">Footsites Webhooks</a>
-                <a href="#/mesh">Mesh Webhooks</a>
-                <a href="#/aio">AIO Webhooks</a>
-                <a href="#/retail">Retail Webhooks</a>
-                <a href="#/economic">Economic Webhooks</a>
-                <a href="#/social">Social Webhooks</a>
-                <a href="#/logs">Bot Log Webhooks</a>
-                <a href="#/releaseinfo">Release Webhooks</a>
+                <a href="/shopify">Shopify Webhooks</a>
+                <a href="/supreme">Supreme Webhooks</a>
+                <a href="/adidas">Adidas Webhooks</a>
+                <a href="/nike">Nike Webhook</a>
+                <a href="/footsites">Footsites Webhooks</a>
+                <a href="/mesh">Mesh Webhooks</a>
+                <a href="/aio">AIO Webhooks</a>
+                <a href="/retail">Retail Webhooks</a>
+                <a href="/economic">Economic Webhooks</a>
+                <a href="/social">Social Webhooks</a>
+                <a href="/logs">Bot Log Webhooks</a>
+                <a href="/releaseinfo">Release Webhooks</a>
                </div>
                 </div>
 

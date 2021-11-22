@@ -6,6 +6,7 @@ import 'primeicons/primeicons.css';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import shopify from './sites/shopify';
+import settings from './sites/settings';
 import supreme from './sites/supreme';
 import adidas from './sites/adidas';
 import nike from './sites/nike';
@@ -48,12 +49,16 @@ class App extends Component {
                         <div class="header">
                         </div>
                     </div>
-                    <DropdownSites/>
-
+                    <DropdownSites />
+                    <form style={{ marginTop: "", marginLeft: "-575px"}}>
+                        <label class="title">Embed Color</label>
+                        <input class="hexcolor" id="hexcolor" placeholder="#6cb3e3"></input>
+                        </form>
                     <div style={{ marginTop: "150px" }}>
                         <Switch>
                             <Route exact path="/" component={shopify} />
                             <Route path="/shopify" component={shopify} />
+                            <Route path="/settings" component={settings} />
                             <Route path="/supreme" component={supreme} />
                             <Route path="/adidas" component={adidas} />
                             <Route path="/nike" component={nike} />
@@ -68,6 +73,8 @@ class App extends Component {
                         </Switch>
                     </div>
                 </div>
+                
+                
             </Router>
         );
     }

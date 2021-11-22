@@ -108,7 +108,17 @@
   
   color: white;
 }
-
+.hexcolor {
+  background: #29253B;
+  display: grid;
+  text-align: center;
+  border-radius: 10px;
+  margin: auto;
+  cursor: pointer;
+  border: none;
+  width: 100px;
+  margin-top: 5px;
+}
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
@@ -139,3 +149,10 @@
   margin-right: auto;
 }
 
+.label {
+  color: white;
+  font-size: 15px;
+  margin-right: 680px;
+  text-align:left;
+  margin-left: 100px;
+}

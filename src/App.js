@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import Shopify from './sites/shopify';
+import settings from './sites/settings';
 import supreme from './sites/supreme';
 import adidas from './sites/adidas';
 import nike from './sites/nike';
@@ -129,10 +130,14 @@ class App extends Component {
                         </div>
                     </div>
                     <DropdownSites />
-
+                    {/* <form style={{ marginTop: "", marginLeft: "-575px" }}>
+                        <label class="title">Embed Color</label>
+                        <input class="hexcolor" id="hexcolor" placeholder="#6cb3e3"></input>
+                    </form> */}
                     <div style={{ marginTop: "150px" }}>
                         <Switch>
-                            <Route path="/shopify" render={() => <Shopify state={this.state} />} />
+                            <Route path="/shopify" component={Shopify} />
+                            <Route path="/settings" component={settings} />
                             <Route path="/supreme" component={supreme} />
                             <Route path="/adidas" component={adidas} />
                             <Route path="/nike" component={nike} />

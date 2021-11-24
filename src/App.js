@@ -3,9 +3,11 @@ import './App.css';
 import 'primereact/resources/themes/rhea/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import shopify from './sites/shopify';
+import { connect } from 'react-redux'
+
+import Shopify from './sites/shopify';
 import supreme from './sites/supreme';
 import adidas from './sites/adidas';
 import nike from './sites/nike';
@@ -20,22 +22,100 @@ import logs from './sites/logs';
 
 import DropdownSites from './dropdown'
 
+
+import LoadingOverlay from "react-loading-overlay";
+//import BounceLoader from "react-spinners/BounceLoader";
+
+import styled, { css } from "styled-components";
+
+const DarkBackground = styled.div`
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  padding-top: 200px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+  ${props =>
+        props.disappear &&
+        css`
+      display: block; /* show */
+    `}
+`;
+
+
 class App extends Component {
 
     constructor() {
         super();
         this.state = {
+            loaded: true
         };
+    }
+
+    componentDidMount() {
+        const url = new URL(window.location.href);
+        const code = url.searchParams.get('code')
+        if (!code) {
+            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=813827235630284870&redirect_uri=http://localhost:3000/&response_type=code&scope=identify guilds email'
+            return;
+        }
+        this.props.dispatch({ type: 'START_LOADING' })
+        console.log(code)
+        fetch('/getaccess', {
+            method: "POST",
+            body: JSON.stringify({
+                code: code
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(async response => {
+            if (response.status !== 200) {
+                if (response.status === 401) {
+                    alert("ERORR: Unknown user, have you purchased a package yet?")
+                    window.location.href = 'https://tachyonrobotics.com'
+                    return;
+                }
+                window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=813827235630284870&redirect_uri=http://localhost:3000/&response_type=code&scope=identify guilds email'
+                return;
+            }
+            let body = await response.json()
+            console.log(body)
+            this.props.dispatch({ type: 'LOAD_USER', payload: body })
+            this.props.dispatch({ type: 'STOP_LOADING' })
+            console.log("userData", this.props.userData)
+        })
     }
 
     changeSite = (e) => {
         this.props.history.push(`/${e.target.value}`);
     }
 
+    test = () => {
+        console.log(window.location.href)
+        console.log(this.props.userData)
+    }
+
     render() {
         return (
-            <Router>
+            <div>
+                <DarkBackground disappear={!this.props.loaded}>
+                    <LoadingOverlay
+                        active={true}
+                        // spinner={<BounceLoader />}
+                        spinner={true}
+                        text="Loading..."
+                    >
+                    </LoadingOverlay>
+                </DarkBackground>
                 <div class="App" >
+                    <button onClick={this.test} />
                     <div class="header">
                         <h1 class="brand">Tachyon Monitors</h1>
                         <a class="header-right" href="https://www.tachyonrobotics.com/">
@@ -48,12 +128,11 @@ class App extends Component {
                         <div class="header">
                         </div>
                     </div>
-                    <DropdownSites/>
+                    <DropdownSites />
 
                     <div style={{ marginTop: "150px" }}>
                         <Switch>
-                            <Route exact path="/" component={shopify} />
-                            <Route path="/shopify" component={shopify} />
+                            <Route path="/shopify" render={() => <Shopify state={this.state} />} />
                             <Route path="/supreme" component={supreme} />
                             <Route path="/adidas" component={adidas} />
                             <Route path="/nike" component={nike} />
@@ -68,9 +147,17 @@ class App extends Component {
                         </Switch>
                     </div>
                 </div>
-            </Router>
+            </div>
         );
     }
 }
 
-export default App;
+
+function mapStateToProps(state) {
+    return {
+        loaded: state.loaded,
+        userData: state.userData
+    }
+}
+
+export default connect(mapStateToProps)(App);

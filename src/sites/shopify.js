@@ -1,35 +1,68 @@
 import React, { Component } from 'react';
-class About extends Component {
 
-    // componentDidMount() {        
-    //     let inputs = document.getElementsByClassName("webhook");
-    //     for (let input of inputs) {
-    //         if (input.id === "undefeated")
-    //             input.value = "aggie"
-    //     }
-    // }
+import { connect } from 'react-redux'
 
-    submitHooks = () => {
+class Shopify extends Component {
+
+    async componentDidMount() {
+        this.updateHooks()
+    }
+
+    updateHooks = async () => {
+        let inputs = document.getElementsByClassName("webhook");
+        let userData = this.props.userData
+        // console.log("webhook", userData.webhooks)
+        for (let input of inputs) {
+            // console.log(input.id)
+            for (let key of Object.keys(userData.webhooks)) {
+                if (key === input.id) {
+                    input.value = userData.webhooks[key]
+                }
+            }
+        }
+    }
+
+    submitHooks = async () => {
+        this.props.dispatch({ type: 'START_LOADING' })
+        // this.props.state.loaded = true
         let inputs = document.getElementsByClassName("webhook");
         let hooks = []
         // eslint-disable-next-line
         for (let input of inputs) {
-            if (!(input.value.match(/discord.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/)) && input.value.trim().length !== 0) {
+            if (input.value.trim().length === 0) {
+                continue
+            }
+            // eslint-disable-next-line
+            if (!(input.value.match(/discord.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/))) {
                 alert(`Webhook "${input.placeholder}" is not a valid webhook`)
                 return
             }
-            console.log(input.id + ":", input.value)
+            // console.log(input.id + ":", input.value)
             hooks.push({
                 name: input.id,
-                webhook: input.value
+                url: input.value
             })
         }
-        fetch('/storehooks', {
+        if (hooks.length === 0)
+            return
+        let response = await fetch('/storehooks', {
             method: "POST",
             body: JSON.stringify({
+                access_token: this.props.userData.access_token,
                 webhooks: hooks
-            })
+            }),
+            headers: {
+                "content-type": "application/json"
+            }
         })
+        if (response.status !== 200) {
+            alert("Something went wrong, please contact devs")
+            return;
+        }
+        let body = await response.json();
+        this.props.dispatch({ type: 'UPDATE_WEBHOOKS', payload: body })
+        this.props.dispatch({ type: 'STOP_LOADING' })
+        this.updateHooks()
     }
 
     render() {
@@ -59,11 +92,11 @@ class About extends Component {
                     </form>
                     <label class="hook-label" for="shopify" >Undefeated</label>
                     <form>
-                        <input class="webhook" type="text" id="undefeated" name="shopify" placeholder="Undefeated" autoComplete="off"></input>
+                        <input class="webhook" type="text" id="UNDEFEATED" name="shopify" placeholder="Undefeated" autoComplete="off"></input>
                     </form>
                     <label class="hook-label" for="shopify" >Kith</label>
                     <form>
-                        <input class="webhook" type="text" id="kith" name="shopify" placeholder="Kith" autoComplete="off"></input>
+                        <input class="webhook" type="text" id="KITH" name="shopify" placeholder="Kith" autoComplete="off"></input>
                     </form>
                     <label class="hook-label" for="shopify" >Kith EU</label>
                     <form>
@@ -103,7 +136,7 @@ class About extends Component {
                     </form>
                     <label class="hook-label" for="shopify" >Shoepalace</label>
                     <form>
-                        <input class="webhook" type="text" id="shoepalace" name="shopify" placeholder="Shoepalace" autoComplete="off"></input>
+                        <input class="webhook" type="text" id="SHOEPALACE" name="shopify" placeholder="Shoepalace" autoComplete="off"></input>
                     </form>
                     <label class="hook-label" for="shopify" >Zadeh Kicks</label>
                     <form>
@@ -124,6 +157,11 @@ class About extends Component {
 
 }
 
+function mapStateToProps(state) {
+    return {
+        loaded: state.loaded,
+        userData: state.userData
+    }
+}
 
-
-export default About;
+export default connect(mapStateToProps)(Shopify);

@@ -70,6 +70,7 @@ class App extends Component {
         const url = new URL(window.location.href);
         const code = url.searchParams.get('code')
         if (!code) {
+            alert('No code', '\n', window.location.href)
             window.location.href = HREF_URI
             return;
         }

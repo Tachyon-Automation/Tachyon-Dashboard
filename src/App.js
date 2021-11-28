@@ -91,7 +91,7 @@ class App extends Component {
                     window.location.href = 'https://tachyonrobotics.com'
                     return;
                 }
-                alert(response.status)
+                // alert(response.status)
                 window.location.href = HREF_URI
                 return;
             }

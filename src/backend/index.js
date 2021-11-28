@@ -35,7 +35,7 @@ app.post('/getaccess', async (req, res) => {
         'client_secret': 'B70m3BOtejJj72oxFE72Rw5zKv1tmg4e',
         'grant_type': 'authorization_code',
         'code': body.code,
-        'redirect_uri': process.env.localhost ? 'http://localhost:3000/' : 'http://dash.tachyonrobotics.com'
+        'redirect_uri': process.env.localhost ? 'http://localhost:3000/' : 'https://dash.tachyonrobotics.com'
     }
 
     var formBody = new URLSearchParams(details)

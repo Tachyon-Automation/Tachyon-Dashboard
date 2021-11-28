@@ -49,6 +49,13 @@ const DarkBackground = styled.div`
     `}
 `;
 
+let redirect_uri
+if(process.env.localhost) {
+    redirect_uri = 'http://localhost:3000'
+} else {
+    redirect_uri = 'https://dash.tachyonrobotics.com'
+}
+const HREF_URI = `https://discord.com/api/oauth2/authorize?client_id=813827235630284870&redirect_uri=${redirect_uri}/&response_type=code&scope=identify guilds email`
 
 class App extends Component {
 
@@ -63,7 +70,7 @@ class App extends Component {
         const url = new URL(window.location.href);
         const code = url.searchParams.get('code')
         if (!code) {
-            window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=813827235630284870&redirect_uri=http://localhost:3000/&response_type=code&scope=identify guilds email'
+            window.location.href = HREF_URI
             return;
         }
         this.props.dispatch({ type: 'START_LOADING' })
@@ -83,13 +90,7 @@ class App extends Component {
                     window.location.href = 'https://tachyonrobotics.com'
                     return;
                 }
-                let redirect_uri
-                if(process.env.localhost) {
-                    redirect_uri = 'http://localhost:3000'
-                } else {
-                    redirect_uri = 'https://dash.tachyonrobotics.com'
-                }
-                window.location.href = 'google.com'
+                window.location.href = HREF_URI
                 return;
             }
             let body = await response.json()

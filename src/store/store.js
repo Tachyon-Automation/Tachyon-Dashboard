@@ -33,7 +33,7 @@ const reducer = (state = data, action) => {
     }
 
     case 'LOAD_USER': {
-      console.log(action.payload)
+      // console.log(action.payload)
       state.userData.access_token = action.payload.access_token
       state.userData.discord = action.payload.discord
       state.userData.webhooks = action.payload.webhooks

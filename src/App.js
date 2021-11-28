@@ -83,14 +83,20 @@ class App extends Component {
                     window.location.href = 'https://tachyonrobotics.com'
                     return;
                 }
-                window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=813827235630284870&redirect_uri=http://localhost:3000/&response_type=code&scope=identify guilds email'
+                let redirect_uri
+                if(process.env.localhost) {
+                    redirect_uri = 'http://localhost:3000'
+                } else {
+                    redirect_uri = 'https://dash.tachyonrobotics.com'
+                }
+                window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=813827235630284870&redirect_uri=/&response_type=code&scope=identify guilds email'
                 return;
             }
             let body = await response.json()
-            console.log(body)
+            // console.log(body)
             this.props.dispatch({ type: 'LOAD_USER', payload: body })
             this.props.dispatch({ type: 'STOP_LOADING' })
-            console.log("userData", this.props.userData)
+            // console.log("userData", this.props.userData)
         })
     }
 

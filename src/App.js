@@ -50,7 +50,7 @@ const DarkBackground = styled.div`
 `;
 
 let redirect_uri
-if(process.env.localhost) {
+if(process.env.REACT_APP_IS_LOCALHOST) {
     redirect_uri = 'http://localhost:3000'
 } else {
     redirect_uri = 'https://dash.tachyonrobotics.com'

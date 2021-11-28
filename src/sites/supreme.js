@@ -28,11 +28,8 @@ class About extends Component {
         let hooks = []
         // eslint-disable-next-line
         for (let input of inputs) {
-            if (input.value.trim().length === 0) {
-                continue
-            }
             // eslint-disable-next-line
-            if (!(input.value.match(/discord.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/))) {
+            if (input.value.trim().length !== 0 && !(input.value.match(/discord.com\/api\/webhooks\/([^\/]+)\/([^\/]+)/))) {
                 alert(`Webhook "${input.placeholder}" is not a valid webhook`)
                 return
             }

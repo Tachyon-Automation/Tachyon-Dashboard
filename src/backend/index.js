@@ -1,5 +1,6 @@
 const fetch = require('node-fetch')
 const { v4: uuidv4 } = require('uuid');
+require('dotenv').config({ path: __dirname + '/../../.env' })
 
 const express = require('express');
 const app = express();
@@ -13,7 +14,6 @@ let userData = {}
 let isChanged = false
 
 let accessTokens = {}
-
 
 app.listen(port, async () => {
     await fetchAllUserData()
@@ -35,7 +35,7 @@ app.post('/getaccess', async (req, res) => {
         'client_secret': 'B70m3BOtejJj72oxFE72Rw5zKv1tmg4e',
         'grant_type': 'authorization_code',
         'code': body.code,
-        'redirect_uri': process.env.localhost ? 'http://localhost:3000/' : 'https://dash.tachyonrobotics.com/'
+        'redirect_uri': process.env.REACT_APP_IS_LOCALHOST ? 'http://localhost:3000/' : 'https://dash.tachyonrobotics.com/'
     }
 
     var formBody = new URLSearchParams(details)
@@ -175,7 +175,7 @@ async function fetchAllUserData() {
         userData[discordID] = webhooks
     }
 
-    console.log("[FETCH-UPDATE] Loaded user data! Total Users: " + query.rows.length)
+    // console.log("[FETCH-UPDATE] Loaded user data! Total Users: " + query.rows.length)
     // console.log(userData)
 }
 
@@ -186,6 +186,7 @@ async function updateMasterHookList(recurring, sleepInterval = 10000) {
             masterHooks.push(row.name)
         }
         // console.log("[HOOK-UPDATE] Fetched webhook data! Total masters: " + query.rows.length)
+        await fetchAllUserData()
 
         if (!recurring)
             break;

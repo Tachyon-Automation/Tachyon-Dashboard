@@ -89,7 +89,7 @@ class App extends Component {
                 } else {
                     redirect_uri = 'https://dash.tachyonrobotics.com'
                 }
-                window.location.href = 'https://discord.com/api/oauth2/authorize?client_id=813827235630284870&redirect_uri=/&response_type=code&scope=identify guilds email'
+                window.location.href = 'google.com'
                 return;
             }
             let body = await response.json()

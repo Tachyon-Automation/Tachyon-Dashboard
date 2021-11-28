@@ -125,7 +125,7 @@ class App extends Component {
                     </LoadingOverlay>
                 </DarkBackground>
                 <div class="App" >
-                    <button onClick={this.test} />
+                    {/* <button onClick={this.test} /> */}
                     <div class="header">
                         <h1 class="brand">Tachyon Monitors</h1>
                         <a class="header-right" href="https://www.tachyonrobotics.com/">

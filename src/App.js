@@ -70,7 +70,7 @@ class App extends Component {
         const url = new URL(window.location.href);
         const code = url.searchParams.get('code')
         if (!code) {
-            alert(window.location.href)
+            // alert(window.location.href)
             window.location.href = HREF_URI
             return;
         }
@@ -87,10 +87,11 @@ class App extends Component {
         }).then(async response => {
             if (response.status !== 200) {
                 if (response.status === 401) {
-                    alert("ERORR: Unknown user, have you purchased a package yet?")
+                    alert("ERROR: Unknown user, have you purchased a package yet?")
                     window.location.href = 'https://tachyonrobotics.com'
                     return;
                 }
+                alert(response.status)
                 window.location.href = HREF_URI
                 return;
             }

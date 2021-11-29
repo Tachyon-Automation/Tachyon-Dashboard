@@ -4,6 +4,45 @@ import { connect } from 'react-redux'
 
 class About extends Component {
 
+    webhooks = {
+        "AIOUNFILTERED": "AIO Unfiltered",
+        "AIOFILTEREDUS": "AIO Filtered US",
+        "AIOFILTEREDEU": "AIO Filtered EU",
+        "SLAMJAM": "Slamjam",
+        "SOLEBOX": "Solebox",
+        "REVOLVE": "Revolve",
+        "SNIPESEU": "Snipes EU",
+        "SNIPESUSA": "Snipes USA",
+        "DSG": "DSG",
+        "ONYGO": "Onygo",
+        "ASOS": "Asos",
+        "LACOSTE": "Lacoste",
+        "OFFSPRING": "Offspring",
+        "OFFICE": "Office",
+        "BOXLUNCH": "Box Lunch",
+        "HOTTOPIC": "Hot Topic",
+        "FINISHLINE": "Finishline",
+        "JDSPORTS": "JD Sports",
+        "LVR": "Luisaviaroma",
+        "NORDSTROM": "Nordstrom",
+        "NORDSTROMCA": "Nordstrom CA",
+        "HIBBETT": "Hibbett",
+        "MRPORTER": "MrPorter",
+        "NETAPORTER": "NetaPorter",
+        "SSENSE": "SSENSE",
+        "SHOPWSS": "Shopwss",
+        "FOOTSHOP": "Footshop",
+        "END": "END",
+        "TITOLO": "Titolo",
+        "SVD": "SVD",
+        "CROCS": "Crocs",
+        "NEWBALANCE": "New Balance",
+        "SNS": "Sneakersnstuff",
+        "SPORTSCHECK": "Sportscheck",
+        "GOLFTOWN": "Golftown",
+        "AWLAB": "AWLAB"
+    }
+
     async componentDidMount() {
         this.updateHooks()
     }
@@ -67,114 +106,12 @@ class About extends Component {
             <div>
                 <div class="grid-container">
                     <h2 class="hook-container">AIO Webhooks</h2>
-                    <label class="hook-label" for="webhook" >Finishline</label>
-                    <form>
-                        <input class="webhook" type="text" id="FINISHLINE" name="shopify" placeholder="Finishline" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Solebox</label>
-                    <form>
-                        <input class="webhook" type="text" id="SOLEBOX" name="shopify" placeholder="Solebox" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Offpring</label>
-                    <form>
-                        <input class="webhook" type="text" id="OFFSPRING" name="shopify" placeholder="Offpring" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Nordstrom</label>
-                    <form>
-                        <input class="webhook" type="text" id="NORDSTROM" name="shopify" placeholder="Nordstrom" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Hibbett</label>
-                    <form>
-                        <input class="webhook" type="text" id="HIBBETT" name="shopify" placeholder="Hibbett" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Ssense</label>
-                    <form>
-                        <input class="webhook" type="text" id="SSENSE" name="shopify" placeholder="Ssense" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Slam Jam</label>
-                    <form>
-                        <input class="webhook" type="text" id="SLAMJAM" name="shopify" placeholder="Slam Jam" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Snipes</label>
-                    <form>
-                        <input class="webhook" type="text" id="SNIPES" name="shopify" placeholder="Snipes" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Snipes US</label>
-                    <form>
-                        <input class="webhook" type="text" id="SNIPESUS" name="shopify" placeholder="Snipes US" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Box Lunch</label>
-                    <form>
-                        <input class="webhook" type="text" id="BOXLUNCH" name="shopify" placeholder="Box Lunch" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Hot Topic</label>
-                    <form>
-                        <input class="webhook" type="text" id="HOTTOPIC" name="shopify" placeholder="Hot Topic" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Shopwss</label>
-                    <form>
-                        <input class="webhook" type="text" id="SHOPWSS" name="shopify" placeholder="Shopwss" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Footshop</label>
-                    <form>
-                        <input class="webhook" type="text" id="FOOTSHOP" name="shopify" placeholder="Footshop" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >End</label>
-                    <form>
-                        <input class="webhook" type="text" id="END" name="shopify" placeholder="End" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Svd</label>
-                    <form>
-                        <input class="webhook" type="text" id="SVD" name="shopify" placeholder="Svd" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Asos</label>
-                    <form>
-                        <input class="webhook" type="text" id="ASOS" name="shopify" placeholder="Asos" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Courir</label>
-                    <form>
-                        <input class="webhook" type="text" id="COURIR" name="shopify" placeholder="Courir" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Lacoste</label>
-                    <form>
-                        <input class="webhook" type="text" id="LACOSTE" name="shopify" placeholder="Lacoste" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Mr Porter</label>
-                    <form>
-                        <input class="webhook" type="text" id="MRPORTER" name="shopify" placeholder="Mr Porter" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Net Porter</label>
-                    <form>
-                        <input class="webhook" type="text" id="NETPORTER" name="shopify" placeholder="Net Porter" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Crocs</label>
-                    <form>
-                        <input class="webhook" type="text" id="CROCS" name="shopify" placeholder="Crocs" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >New Balance</label>
-                    <form>
-                        <input class="webhook" type="text" id="NEWBALANCE" name="shopify" placeholder="New Balance" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >DSG</label>
-                    <form>
-                        <input class="webhook" type="text" id="DSG" name="shopify" placeholder="DSG" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Far Fetch</label>
-                    <form>
-                        <input class="webhook" type="text" id="FARFETCH" name="shopify" placeholder="Far Fetch" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Off White</label>
-                    <form>
-                        <input class="webhook" type="text" id="OFFWHITE" name="shopify" placeholder="Off White" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >SNS</label>
-                    <form>
-                        <input class="webhook" type="text" id="SNS" name="shopify" placeholder="SNS" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >louis Viaroma</label>
-                    <form>
-                        <input class="webhook" type="text" id="LOUISVIAROMA" name="shopify" placeholder="louis Viaroma" autoComplete="off"></input>
-                    </form>
+                    {Object.keys(this.webhooks).map((item, index) => (
+                        <form>
+                            <label class="hook-label" >{this.webhooks[item]}</label><br />
+                            <input class="webhook" type="text" id={item} name="shopify" placeholder={this.webhooks[item]} autoComplete="off"></input>
+                        </form>
+                    ))}
                     <button class="save-button" id="save" type="button" onClick={this.submitHooks}>Save Changes</button>
                 </div>
             </div>

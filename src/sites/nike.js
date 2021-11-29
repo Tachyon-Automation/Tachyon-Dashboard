@@ -2,7 +2,35 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux'
 
+
 class About extends Component {
+
+    webhooks = {
+        "SNKRSAU": "SNKRS AU",
+        "SNKRSBE": "SNKRS BE",
+        "SNKRSCA": "SNKRS CA",
+        "SNKRSCL": "SNKRS CL",
+        "SNKRSCN": "SNKRS CN",
+        "SNKRSDE": "SNKRS DE",
+        "SNKRSES": "SNKRS ES",
+        "SNKRSFR": "SNKRS FR",
+        "SNKRSGB": "SNKRS GB",
+        "SNKRSID": "SNKRS ID",
+        "SNKRSIE": "SNKRS IE",
+        "SNKRSIN": "SNKRS IN",
+        "SNKRSIT": "SNKRS IT",
+        "SNKRSJP": "SNKRS JP",
+        "SNKRSMX": "SNKRS MX",
+        "SNKRSMY": "SNKRS MY",
+        "SNKRSNL": "SNKRS NL",
+        "SNKRSNZ": "SNKRS NZ",
+        "SNKRSPH": "SNKRS PH",
+        "SNKRSPL": "SNKRS PL",
+        "SNKRSRU": "SNKRS RU",
+        "SNKRSSG": "SNKRS SG",
+        "SNKRSTH": "SNKRS TH",
+        "SNKRSUS": "SNKRS US"
+    }
 
     async componentDidMount() {
         this.updateHooks()
@@ -67,34 +95,12 @@ class About extends Component {
             <div>
                 <div class="grid-container">
                     <h2 class="hook-container">Nike Webhooks</h2>
-                    <label class="hook-label" for="webhook" >SNKRS US</label>
-                    <form>
-                        <input class="webhook" type="text" id="SNKRSUS" name="shopify" placeholder="SNKRS US" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Nike CN</label>
-                    <form>
-                        <input class="webhook" type="text" id="NIKECN" name="shopify" placeholder="Nike CN" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Nike FR</label>
-                    <form>
-                        <input class="webhook" type="text" id="NIKEFR" name="shopify" placeholder="Nike FR" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Nike JP</label>
-                    <form>
-                        <input class="webhook" type="text" id="NIKEJP" name="shopify" placeholder="Nike JP" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Nike GB</label>
-                    <form>
-                        <input class="webhook" type="text" id="NIKEGB" name="shopify" placeholder="Nike GB" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Nike CA</label>
-                    <form>
-                        <input class="webhook" type="text" id="NIKECA" name="shopify" placeholder="Nike CA" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Nike AU</label>
-                    <form>
-                        <input class="webhook" type="text" id="NIKEAU" name="shopify" placeholder="Nike AU" autoComplete="off"></input>
-                    </form>
+                    {Object.keys(this.webhooks).map((item, index) => (
+                        <form>
+                            <label class="hook-label" >{this.webhooks[item]}</label><br />
+                            <input class="webhook" type="text" id={item} name="shopify" placeholder={this.webhooks[item]} autoComplete="off"></input>
+                        </form>
+                    ))}
                     <button class="save-button" id="save" type="button" onClick={this.submitHooks}>Save Changes</button>
                 </div>
             </div>

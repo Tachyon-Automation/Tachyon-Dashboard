@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 class About extends Component {
 
+    webhooks = {
+    }
     async componentDidMount() {
         this.updateHooks()
     }
@@ -66,30 +68,12 @@ class About extends Component {
             <div>
                 <div class="grid-container">
                     <h2 class="hook-container">Adidas Webhooks</h2>
-                    <label class="hook-label" for="webhook" >Yeezysupply</label>
-                    <form>
-                        <input class="webhook" type="text" id="YEEZYSUPPLY" name="shopify" placeholder="Yeezysupply" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Adiadas US</label>
-                    <form>
-                        <input class="webhook" type="text" id="ADIDASUS" name="shopify" placeholder="Adiadas US" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Adiadas CA</label>
-                    <form>
-                        <input class="webhook" type="text" id="ADIDASCA" name="shopify" placeholder="Adiadas CA" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Adiadas UK</label>
-                    <form>
-                        <input class="webhook" type="text" id="ADIDASUK" name="shopify" placeholder="Adiadas UK" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Adiadas EU</label>
-                    <form>
-                        <input class="webhook" type="text" id="ADIDASEU" name="shopify" placeholder="Adiadas EU" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="shopify" >Confirmed App</label>
-                    <form>
-                        <input class="webhook" type="text" id="CONFIRMEDAPP" name="shopify" placeholder="Confirmed App" autoComplete="off"></input>
-                    </form>
+                    {Object.keys(this.webhooks).map((item, index) => (
+                        <form>
+                            <label class="hook-label" >{this.webhooks[item]}</label><br />
+                            <input class="webhook" type="text" id={item} name="shopify" placeholder={this.webhooks[item]} autoComplete="off"></input>
+                        </form>
+                    ))}
                     <button class="save-button" id="save" type="button" onClick={this.submitHooks}>Save Changes</button>
                 </div>
             </div>

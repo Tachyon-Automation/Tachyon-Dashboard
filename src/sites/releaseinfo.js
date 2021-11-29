@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 
 class About extends Component {
 
+    webhooks = {
+    }
+    
     async componentDidMount() {
         this.updateHooks()
     }
@@ -67,18 +70,12 @@ class About extends Component {
             <div>
                 <div class="grid-container">
                     <h2 class="hook-container">Releaseinfo Webhooks</h2>
-                    <label class="hook-label" for="webhook" >Supreme</label>
-                    <form>
-                        <input class="webhook" type="text" id="SUPRME" name="shopify" placeholder="Supreme" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="webhook" >Kith</label>
-                    <form>
-                        <input class="webhook" type="text" id="KITH" name="shopify" placeholder="Kith" autoComplete="off"></input>
-                    </form>
-                    <label class="hook-label" for="webhook" >Palace</label>
-                    <form>
-                        <input class="webhook" type="text" id="Palace" name="shopify" placeholder="Palace" autoComplete="off"></input>
-                    </form>
+                    {Object.keys(this.webhooks).map((item, index) => (
+                        <form>
+                            <label class="hook-label" >{this.webhooks[item]}</label><br />
+                            <input class="webhook" type="text" id={item} name="shopify" placeholder={this.webhooks[item]} autoComplete="off"></input>
+                        </form>
+                    ))}
                     <button class="save-button" id="save" type="button" onClick={this.submitHooks}>Save Changes</button>
                 </div>
             </div>

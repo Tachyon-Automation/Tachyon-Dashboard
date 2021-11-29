@@ -5,13 +5,46 @@ import { connect } from 'react-redux'
 class Shopify extends Component {
 
     webhooks = {
-        "SHOPIFYPASSWORD": "",
-        "SHOPIFYCHECKPOINT": "",
-        "SHOPIFY": "",
-        "UNFILTERED": "Undefeated",
+        "PASSWORD": "Password",
+        "ANTIBOT": "Antibot",
+        "FILTERED": "Filtered",
+        "FILTERED2": "Filtered 2",
+        "UNFILTERED": "Unfiltered",
+        "UNFILTERED2": "Unfiltered 2",
+        "FILTEREDEU": "Filtered EU",
+        "FILTEREDUK": "Filtered UK",
+        "FILTEREDCA": "Filtered CA",
+        "FILTEREDAU": "Filtered AU",
+        "FILTEREDHATS": "Filtered Hats",
+        "SKATESHOP": "Skateshops",
+        "COLLECTABLES": "Collectables",
+        "SOFTWARE": "Software",
+        "DSMEFLASH": "DSM E-Flash",
+        "DSMEFLASHUS": "DSM E-Flash US",
+        "DSMEFLASHSG": "DSM E-Flash SG",
+        "DSMEFLASHJP": "DSM E-Flash JP",
+        "DSM": "DSM",
+        "DSMUS": "DSM US",
+        "DSMSG": "DSM SG",
+        "DSMJP": "DSM JP",
+        "UDEFEATED": "Undefeated",
+        "KITH": "Kith",
+        "KITHEU": "Kith EU",
+        "PALACEUS": "Palace US",
+        "PALACEUK": "Palace UK",
+        "TRAVIS": "Travis",
+        "CPFM": "CPFM",
+        "DTLR": "DTLR",
+        "KAWS": "Kaws",
+        "BAPE": "Bape",
+        "CNCPTS": "Cncpts",
+        "JIMMYJAZZ": "Jimmy Jazz",
+        "SNK": "SNK",
+        "YCMC": "YCMC",
         "SHOEPALACE": "Shoepalace",
-        "UNDEFEATED": "",
-        "KITH": ""
+        "FUNKO": "Funko",
+        "HATCLUB": "Hatclub",
+        "ERICEMANUEL": "Eric Emanuel"
     }
 
     async componentDidMount() {
@@ -77,7 +110,8 @@ class Shopify extends Component {
         return (
             <div>
                 <div class="grid-container">
-                    <h2 class="hook-container">Shopify Webhooks</h2>{Object.keys(this.webhooks).map((item, index) => (
+                    <h2 class="hook-container">Shopify Webhooks</h2>
+                    {Object.keys(this.webhooks).map((item, index) => (
                         <form>
                             <label class="hook-label" >{this.webhooks[item]}</label><br/>
                             <input class="webhook" type="text" id={item} name="shopify" placeholder={this.webhooks[item]} autoComplete="off"></input>
